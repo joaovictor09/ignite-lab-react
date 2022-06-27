@@ -14,6 +14,8 @@ export function Subscribe(){
 
   const [createSubscriber, {loading}] = useCreateSubscriberMutation()
 
+
+
   async function handleSubscribe(event: FormEvent){
     event.preventDefault()
 
@@ -23,12 +25,20 @@ export function Subscribe(){
         email
       }
     })
+
     navigate("/event")
+    
   }
   
   return(
     <div className="min-h-screen bg-blur bg-cover bg-no-repeat flex flex-col items-center">
+
+      {/* CONTENT DIV */}
+
       <div className="w-full max-w-[1180px] flex flex-col items-center justify-between mt-10 px-28 mx-auto gap-6 md:flex-row sm:px-14 2xl:px-0 lg:mt-20">
+
+        {/* TEXT AND LOGO DIV */}
+        
         <div className="max-w-[640px] flex flex-col items-center px-6 text-center md:items-start md:text-left ">
           <Logo />
 
@@ -40,7 +50,9 @@ export function Subscribe(){
           </p>
         </div>
 
-        <div className="p-8 w-screen bg-gray-700 border-y border-gray-500 sm:rounded sm:w-full">
+        {/* FORM DIV */}
+
+        <div className="p-8 w-screen bg-gray-700 border-y border-gray-500 sm:rounded sm:w-full sm:border">
           <strong className="text-2xl mb-6 block">
             Inscreva-se gratuitamente
           </strong>
@@ -69,7 +81,9 @@ export function Subscribe(){
           </form>
         </div>
       </div>
+
       <img className="mt-10" src={codeMockup} alt="" />
+
       <Footer />
     </div>
   )

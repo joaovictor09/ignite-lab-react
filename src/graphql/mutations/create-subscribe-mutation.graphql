@@ -1,5 +1,10 @@
 mutation CreateSubscriber($name: String!, $email: String!) {
-  createSubscriber(data: {name: $name, email: $email}) {
+  upsertSubscriber(
+    where: {email: $email}
+    upsert: {create: {name: $name, email: $email}, update: {}}
+  ) {
     id
+    name
+    email
   }
 }

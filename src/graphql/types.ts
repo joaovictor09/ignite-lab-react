@@ -5574,7 +5574,7 @@ export type CreateSubscriberMutationVariables = Exact<{
 }>;
 
 
-export type CreateSubscriberMutation = { __typename?: 'Mutation', createSubscriber?: { __typename?: 'Subscriber', id: string } | null };
+export type CreateSubscriberMutation = { __typename?: 'Mutation', upsertSubscriber?: { __typename?: 'Subscriber', id: string, name: string, email: string } | null };
 
 export type GetFirstLessonSlugQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5596,8 +5596,13 @@ export type GetLessonsQuery = { __typename?: 'Query', lessons: Array<{ __typenam
 
 export const CreateSubscriberDocument = gql`
     mutation CreateSubscriber($name: String!, $email: String!) {
-  createSubscriber(data: {name: $name, email: $email}) {
+  upsertSubscriber(
+    where: {email: $email}
+    upsert: {create: {name: $name, email: $email}, update: {}}
+  ) {
     id
+    name
+    email
   }
 }
     `;
