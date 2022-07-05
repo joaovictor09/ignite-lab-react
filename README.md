@@ -1,5 +1,3 @@
-Variantes de botões
-Footer
-Responsivo
-Caso n tenha slug, carregar primeira aula automaticamente
-tela de loading de video
+# Ignite Lab React
+
+Projeto criado durante as aulas do Ignite Lab React
