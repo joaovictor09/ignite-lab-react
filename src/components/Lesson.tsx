@@ -46,7 +46,7 @@ export function Lesson(props: LessonProps){
               <span className={classNames("text-xs rounded px-2 py-[0.125rem] text-white border border-green-300 font-bold", {
                 'border-white': isActiveLesson
               })}>
-                {props.type === 'live' ? 'AO VIVO' : 'AULA PRÁTICA'}
+                {props.type === 'live' ? 'LIVE AO VIVO' : 'AULA PRÁTICA'}
               </span>
             </header>
             <span className={classNames("font-bold leading-relaxed", {
@@ -57,21 +57,27 @@ export function Lesson(props: LessonProps){
           </div>
         </Link>
       ) : (
-        <div className="flex flex-col gap-4 rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500 transition-colors hover:cursor-not-allowed">
-          <header className="flex items-center justify-between">
-            <span className="text-sm text-orange-500 font-medium flex items-center gap-2 group-hover:cursor-not-allowed">
-              <Lock size={20}/>
-              Em breve
-            </span>
-            <span className="text-xs rounded px-2 py-[0.125rem] text-white border border-green-300 font-bold">
-              {props.type === 'live' ? 'AO VIVO' : 'AULA PRÁTICA'}
-            </span>
-          </header>
-          <span className="font-bold leading-relaxed">
-            {props.title}
+        <>
+          <span className="text-gray-300">
+            {availableDateFormatted}
           </span>
-        </div>
+          <div className="flex flex-col gap-4 rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500 transition-colors hover:cursor-not-allowed">
+            <header className="flex items-center justify-between">
+              <span className="text-sm text-orange-500 font-medium flex items-center gap-2 group-hover:cursor-not-allowed">
+                <Lock size={20}/>
+                Em breve
+              </span>
+              <span className="text-xs rounded px-2 py-[0.125rem] text-white border border-green-300 font-bold">
+                {props.type === 'live' ? 'LIVE AO VIVO' : 'AULA PRÁTICA'}
+              </span>
+            </header>
+            <span className="font-bold leading-relaxed">
+              {props.title}
+            </span>
+          </div>
+        </>
       )}
     </div>
+    
   )
 }
